@@ -1,7 +1,7 @@
 # UT Austin Fundraising Analysis
 In this project, I am asking the question: who is more likely to donate money to a cause? My hypothesis is that someone who meets a certain set of criteria (ie: age, income, and education level) is more likely to donate then someone who does not meet set criteria. 
 
-I want to address, from a management perspective, the most effective way to utilize resources with the goal of achieving a success rate of over 95% within an 8 hour period. My intension is to give managers a tool that they can use to focus their direct report's efforts and while maximizing time. 
+I want to address, from a management perspective, the most effective way to utilize resources with the goal of achieving a success rate of over 95% within an 8 hour period. My intention is to give managers a tool that they can use to focus their direct reports' efforts while maximizing time. 
 
 ## Overview of the Analysis Scope of the Project
 I am demonstrating my knowledge of unsupervised machine learning algorithms. I use Python and the Pandas Library to preprocess the data and K-Means algorithm along with Principal Component Analysis (PCA) to reduce the data to three columns. This will be further explained in the results section of this document. Furthermore, I use a dataset from Kaggle that redacted names, emails, and phone numbers but still contained 14 columns with information ranging from age to education level to marital status and income.
@@ -18,7 +18,7 @@ The following image shows how I load the data into Pandas and create a dataframe
 ![load.png](Resources/load.png)
 ![df.png](Resources/df.png)
 
-- Data Preprocessing
+### 1. Data Preprocessing
 
 To begin, I use an f-string print statement to check for null values because unsupervised machine learning (ML) models can not use null values in their algorithm. This is one of the constraints of unsupervised ML models. 
 ![nulls.png](Resources/nulls.png)
@@ -29,14 +29,14 @@ Unnecessary data, or data that doesn't add to the solution, is another considera
 To minimize the spread of numbers in capital gain's column, I divided the entire row by 100. This will put the values in the same range as the rest of the columns without losing any data. Now, the entire dataset is between 1 and 40. 
 ![divide.png](Resources/divide.png)
 
-I performed two different functions to numerically describe the remaining columns. The first was from the pandas library called "get_dummies". This essentially transforms binary data into ones and zeros and creates an extra column. Each column populates with a one and a zero based on the original input. The second function "Label Encoder" comes from the SciKit-Learn library. It transforms each value to a numeric representation of all the categories in that row. 
+I performed two different functions to numerically describe the remaining columns. The first was from the Pandas library called "get_dummies". This essentially transforms binary data into ones and zeros and creates an extra column. Each column populates with a one and a zero based on the original input. The second function "Label Encoder" comes from the SciKit-Learn library. It transforms each value to a numeric representation of all the categories in that row. 
 ![binary.png](Resources/binary.png)
 ![transform.png](Resources/transform.png)
 
 This is the final product as a dataframe ready for the next level of analysis. 
 ![preprocessed.png](Resources/preprocessed.png)
 
-- PCA
+### 2. Cluster Modeling Using PCA
 
 To begin clustering, I utilized an elbow graph to show where increasing the number of clusters no longer caused differences in the results. In other words, I plotted clusters on the x-axis and inertia, which measures the amount of variation in the dataset, on the y-axis. I can now visually see where the point of diminishing return for clustering is reached. In this case, I feel that five clusters will suffice. 
 ![elbow.png](Resources/elbow.png)
@@ -44,7 +44,7 @@ To begin clustering, I utilized an elbow graph to show where increasing the numb
 I wanted to further identify clusters and experiment with other means of identifying clusters. So, I implemented Principal Component Analysis. This is a statistical technique to reduce the input features by transforming them into smaller chunks of information that still contains most of the original larger dataset. It employs linear transformations, eigenvectors and eigenvalues to show us the spread of the dataset and by how much. This is a much more complicated process rooted in linear algebra. However, the coding for this is much easier. 
 ![pca.png](Resources/pca.png)
 
-- Outcome
+### 3. Outcome
 
 This is a 3D scatter plot of the data. The three principal components are plotted on the x, y, and z axis. As illustrated, the red x's, class 2, have the highest concentration of points. Or, class 2 has the largest cluster of similar or like individuals. 
 ![scatter3d.png](Resources/scatter3d.png)
@@ -53,7 +53,7 @@ This table can be filtered to show the class and thier associated features (ie: 
 ![table.png](Resources/table.png)
 
 ## Summary
-It was my hypothesis that I would find a couple to several traits that were common among donors. Instead, what I found was similar people with shared features are more likely to donate in varying degrees of each group or class. I other words, if we concentrate our efforts in the type of people in class 2 that have the mean age as those represented in our machine learning model, and have the same statistical make-up as the other features in our model, then we are more likely to reach our 95% success rate in an 8 hour period. 
+It was my hypothesis that I would find trends of more and less likely donors within some combination of features such as income and age. In other words, I expected that perhaps people between ages 40-50 with an income over $50,000 might be more likely to donate. Instead, what I found was that likely donors formed five clusters or classes. Within each class, each feature (age, income, etc.) actually has a range of responses, so the connection between features was not as direct as I expected. Instead, it resulted from the mean and the mode of multiple features at the same time. People with shared or similar features are more likely to donate in varying degrees within each group or class, with the highest likelihood being found in class 2. The likelihood of donation is higest at the center of the cluster. To find the center of cluster 2, which had the most, we must find the mean age and the mode of the rest of the features. To find the most likely donors in a new data set with simliar features, the next step would be to merge that database with the existing one. Within the new combinted data set, we should concentrate our efforts on the type of people in class 2 in our model. Then we are more likely to reach our 95% success rate in an 8 hour period. In the simplist terms, determine who from the dataset of prospective donors lands in the center of cluster 2 and start there. 
 
 ## Recommendations
 Our next steps would be to:
