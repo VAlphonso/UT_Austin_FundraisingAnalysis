@@ -41,15 +41,25 @@ This is the final product as a dataframe ready for the next level of analysis.
 To begin clustering, I utilized an elbow graph to show where increasing the number of clusters no longer caused differences in the results. In other words, I plotted clusters on the x-axis and inertia, which measures the amount of variation in the dataset, on the y-axis. I can now visually see where the point of diminishing return for clusering is reached. In this case, I feel that five clusers will sufice. 
 ![elbow.png](Resources/elbow.png)
 
-PCA is a statistical technique to speed up machine learning algorithms when the number of input features (or dimensions) is too high. PCA reduces the number of dimensions by transforming a large set of variables into a smaller one that contains most of the information in the original large set.
-The big takeaway from eigenvectors and eigenvalues is that they show us the spread of the dataset and by how much.
-The statistics, linear transformations, and eigenvalues and eigenvectors all illustrate how PCA works. 
-I wanted to further identify clusters and experiment with other means of identifing clusters. So, I implemented Principal Component Analysis. This is a statistical technique to reduce the input features by transforming them into smaller chunks of information that still contains most of the original larger dataset. It employes eigenvectors and eigenvalues to show us the spread of the dataset and by how much. This is a much more complicated process rooted in linear algebra. However, the coding for this is much easier. 
+I wanted to further identify clusters and experiment with other means of identifing clusters. So, I implemented Principal Component Analysis. This is a statistical technique to reduce the input features by transforming them into smaller chunks of information that still contains most of the original larger dataset. It employes linear transformations, eigenvectors and eigenvalues to show us the spread of the dataset and by how much. This is a much more complicated process rooted in linear algebra. However, the coding for this is much easier. 
 ![pca.png](Resources/pca.png)
+
 - Outcome
+
+This is a 3D scatter plot of the data. The three principal components are plotted on the x, y, and z axis. As illustrated, the red x's, class 2, have the highest concentration of points. Or, class 2 has the largest cluster of similar or like individuals. 
 ![scatter3d.png](Resources/scatter3d.png)
+
+This table can be filtered to show the class and their associated features (ie: age, workclass, education,etc.) on the same row. 
 ![table.png](Resources/table.png)
+
 ## Summary
+It was my hypothesis that I would find a couple of traits that were common amount donors. Instead, what I found was that similar people are more likely or less likely to donate. I other words, if were concentrate our efforts in the type of people in class 2 that have the mean age as those represented in our machine learning model, and have the same statistical make-up of the other features in our model, then we are more likely to reach our 95% success rate in an 8 hour period. 
+
+## Recommendations
+Our next steps would be to:
+- tie in UT's donor database to our ML model to get names, phone numbers, and emails
+- create an on-line repository for staff to enter successes
+- with success rate now a new column, we can run a supervised machine learning program to predict who will donate. 
 
 ## Presentation
 [Here](website) is a link to a presentation discussing this work. 
