@@ -1,10 +1,10 @@
 # UT Austin Fundraising Analysis
 In this project, I am asking the question: who is more likely to donate money to a cause? My hypothesis is that someone who meets a certain set of criteria (ie: age, income, and education level) is more likely to donate then someone who does not meet set criteria. 
 
-I want to address, from a managment prespective, the most effective way to utilize resources with the goal of achieving a success rate of over 95% within an 8 hour period. My intension is to give managers a tool that they can use to focus their direct report's efforts and while maximizing time. 
+I want to address, from a management perspective, the most effective way to utilize resources with the goal of achieving a success rate of over 95% within an 8 hour period. My intension is to give managers a tool that they can use to focus their direct report's efforts and while maximizing time. 
 
 ## Overview of the Analysis Scope of the Project
-I am demonstrating my knowledge of unsupervised machine learning algorithiums. I use Python and the Pandas Library to preprocess the data and K-Means algoritum along with Prinicpal Component Analysis (PCA) to reduce the data to three columns. This will be further explained in the results section of this document. Furthermore, I use a dataset from Kaggle that redacted names, emails, and phone numbers but still contained 14 columns with information ranging from age to education level to marital status and income.
+I am demonstrating my knowledge of unsupervised machine learning algorithms. I use Python and the Pandas Library to preprocess the data and K-Means algorithm along with Principal Component Analysis (PCA) to reduce the data to three columns. This will be further explained in the results section of this document. Furthermore, I use a dataset from Kaggle that redacted names, emails, and phone numbers but still contained 14 columns with information ranging from age to education level to marital status and income.
 
 ## Resources
 - Data Source: Kaggle: Finding Donors for CharityML https://www.kaggle.com/ahmed2892/finding-donors-for-charityml
@@ -20,16 +20,16 @@ The following image shows how I load the data into Pandas and create a dataframe
 
 - Data Preprocessing
 
-To begin, I use an f-string print statement to check for null values because unsupervised machine learning (ML) models can not use null values in their algorithum. This is one of the constriants of unsupervised ML models. 
+To begin, I use an f-string print statement to check for null values because unsupervised machine learning (ML) models can not use null values in their algorithm. This is one of the constraints of unsupervised ML models. 
 ![nulls.png](Resources/nulls.png)
 
-Unnecessary data, or data that doesn't add to the solution, is another consideration when preprocessing your data. This is subjective and must be taken seriously as the analyist might unintentionally introduce biases into the algorithum. 
+Unnecessary data, or data that doesn't add to the solution, is another consideration when preprocessing your data. This is subjective and must be taken seriously as the analyst might unintentionally introduce biases into the algorithm. 
 ![drop.png](Resources/drop.png)
 
-To minimize the spread of numbers in capital gain's column, I divided the entire row by 100. This will put the values in the same range as the rest of the columns without lossing any data. Now, the entire dataset is between 1 and 40. 
+To minimize the spread of numbers in capital gain's column, I divided the entire row by 100. This will put the values in the same range as the rest of the columns without losing any data. Now, the entire dataset is between 1 and 40. 
 ![divide.png](Resources/divide.png)
 
-I performed two different functions to numerically describe the remainding columns. The first was from the pandas library called "get_dummies". This essentially transforms binary data into ones and zeros and creates an extra column. Each column populates with a one and a zero based on the original input. The second function "Label Encoder" comes from the SciKit-Learn library. It transformes each value to a numeric representation of all the categories in that row. 
+I performed two different functions to numerically describe the remaining columns. The first was from the pandas library called "get_dummies". This essentially transforms binary data into ones and zeros and creates an extra column. Each column populates with a one and a zero based on the original input. The second function "Label Encoder" comes from the SciKit-Learn library. It transforms each value to a numeric representation of all the categories in that row. 
 ![binary.png](Resources/binary.png)
 ![transform.png](Resources/transform.png)
 
@@ -38,10 +38,10 @@ This is the final product as a dataframe ready for the next level of analysis.
 
 - PCA
 
-To begin clustering, I utilized an elbow graph to show where increasing the number of clusters no longer caused differences in the results. In other words, I plotted clusters on the x-axis and inertia, which measures the amount of variation in the dataset, on the y-axis. I can now visually see where the point of diminishing return for clusering is reached. In this case, I feel that five clusers will sufice. 
+To begin clustering, I utilized an elbow graph to show where increasing the number of clusters no longer caused differences in the results. In other words, I plotted clusters on the x-axis and inertia, which measures the amount of variation in the dataset, on the y-axis. I can now visually see where the point of diminishing return for clustering is reached. In this case, I feel that five clusters will suffice. 
 ![elbow.png](Resources/elbow.png)
 
-I wanted to further identify clusters and experiment with other means of identifing clusters. So, I implemented Principal Component Analysis. This is a statistical technique to reduce the input features by transforming them into smaller chunks of information that still contains most of the original larger dataset. It employes linear transformations, eigenvectors and eigenvalues to show us the spread of the dataset and by how much. This is a much more complicated process rooted in linear algebra. However, the coding for this is much easier. 
+I wanted to further identify clusters and experiment with other means of identifying clusters. So, I implemented Principal Component Analysis. This is a statistical technique to reduce the input features by transforming them into smaller chunks of information that still contains most of the original larger dataset. It employs linear transformations, eigenvectors and eigenvalues to show us the spread of the dataset and by how much. This is a much more complicated process rooted in linear algebra. However, the coding for this is much easier. 
 ![pca.png](Resources/pca.png)
 
 - Outcome
@@ -49,17 +49,18 @@ I wanted to further identify clusters and experiment with other means of identif
 This is a 3D scatter plot of the data. The three principal components are plotted on the x, y, and z axis. As illustrated, the red x's, class 2, have the highest concentration of points. Or, class 2 has the largest cluster of similar or like individuals. 
 ![scatter3d.png](Resources/scatter3d.png)
 
-This table can be filtered to show the class and their associated features (ie: age, workclass, education,etc.) on the same row. 
+This table can be filtered to show the class and thier associated features (ie: age, workclass, education, etc.) on the same row. 
 ![table.png](Resources/table.png)
 
 ## Summary
-It was my hypothesis that I would find a couple of traits that were common amount donors. Instead, what I found was that similar people are more likely or less likely to donate. I other words, if were concentrate our efforts in the type of people in class 2 that have the mean age as those represented in our machine learning model, and have the same statistical make-up of the other features in our model, then we are more likely to reach our 95% success rate in an 8 hour period. 
+It was my hypothesis that I would find a couple to several traits that were common among donors. Instead, what I found was similar people with shared features are more likely to donate in varying degrees of each group or class. I other words, if we concentrate our efforts in the type of people in class 2 that have the mean age as those represented in our machine learning model, and have the same statistical make-up as the other features in our model, then we are more likely to reach our 95% success rate in an 8 hour period. 
 
 ## Recommendations
 Our next steps would be to:
 - tie in UT's donor database to our ML model to get names, phone numbers, and emails
-- create an on-line repository for staff to enter successes
-- with success rate now a new column, we can run a supervised machine learning program to predict who will donate. 
+- begin to reach out to those individuals 
+- create an on-line repository for staff to enter results of all interactions as successfully donated or not
+- with success rate now a new column, we can run a supervised machine learning program to predict who will donate
 
 ## Presentation
 [Here](website) is a link to a presentation discussing this work. 
