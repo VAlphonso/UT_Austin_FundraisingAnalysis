@@ -53,11 +53,11 @@ This table can be filtered to show the class and thier associated features (ie: 
 ![table.png](Resources/table.png)
 
 ## Summary
-It was my hypothesis that I would find trends of more and less likely donors within some combination of features such as income and age. In other words, I expected that perhaps people between ages 40-50 with an income over $50,000 might be more likely to donate. Instead, what I found was that likely donors formed five clusters or classes. And the likelihood of donation is higest at the center of each class. Within each class, each feature (age, income, etc.) could be grouped. Those groups could be further analysized with actual data merged into it to find people that would donate. All classes had likely donors but class 2 had the most, or largest, likely donor list.  The next step would be to merge that database with an existing one. Within the new combinted data set, we should concentrate our efforts on people in class 2 in our model. Then we are more likely to reach our 95% success rate in an 8 hour period. 
+It was my hypothesis that I would find trends of more and less likely donors within some combination of features such as income and age. In other words, I expected that perhaps people between ages 40-50 with an income over $50,000 might be more likely to donate. Instead, what I found was that likely donors formed five clusters or classes. And the likelihood of donation is highest at the center of each class. Within each class, each feature (age, income, etc.) could be grouped. Those groups could be further analysized with actual data merged into it to find people that would donate. All classes had likely donors but class 2 had the most, or largest, likely donor list.  The next step would be to merge that database with an existing one. Within the new combinted data set, we should concentrate our efforts on people in class 2 in our model. Then we are more likely to reach our 95% success rate in an 8 hour period. 
 
 ## Recommendations
 Our next steps would be to:
-- tie in UT's donor database to our ML model in order get names, phone numbers, and emails
+- tie in UT's donor database to our ML model in order to merge names, phone numbers, and emails
 - begin to reach out to those individuals 
 - create an on-line repository for staff to enter results of all interactions as successfully donated or not
 - with success rate now a new column, we can run a supervised machine learning program to predict who will donate
