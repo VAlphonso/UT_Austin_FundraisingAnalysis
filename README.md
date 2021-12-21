@@ -63,4 +63,4 @@ Our next steps would be to:
 - with success rate now a new column, we can run a supervised machine learning program to predict who will donate
 
 ## Presentation
-[Here](website) is a link to a presentation discussing this work. 
+[Here](https://docs.google.com/presentation/d/1GH1PzHgWVjFqo1wmQmSDLYBH6ZRDe4zAnpIMEWes0ag/edit?usp=sharing) is a link to a presentation discussing this work. 
